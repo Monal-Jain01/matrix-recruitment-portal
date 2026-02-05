@@ -126,7 +126,7 @@ const SuccessPage = () => {
           <motion.button
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
-            onClick={() => window.open('https://instagram.com/matrix_club', '_blank')}
+            onClick={() => window.open('https://www.instagram.com/matrix.jec?igsh=Mzg1OXdzeTI3d3Bi', '_blank')}
             className="px-8 py-3 bg-gray-700 hover:bg-gray-600 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 justify-center"
           >
             <Users className="h-5 w-5" />
