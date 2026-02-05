@@ -1,0 +1,15 @@
+After creating your GitHub repository, run these commands:
+
+# Add your GitHub repository as remote origin
+git remote add origin https://github.com/YOURUSERNAME/matrix-recruitment-portal.git
+
+# Push your code to GitHub
+git branch -M main
+git push -u origin main
+
+Replace YOURUSERNAME with your actual GitHub username.
+
+Example:
+git remote add origin https://github.com/monaljain1901/matrix-recruitment-portal.git
+git branch -M main
+git push -u origin main
