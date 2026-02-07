@@ -504,7 +504,7 @@ const RecruitmentForm = () => {
                 ) : (
                   <>
                     <Send className="h-5 w-5" />
-                    Submit Application
+                    Submit
                   </>
                 )}
               </motion.button>
