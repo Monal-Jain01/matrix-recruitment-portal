@@ -1,0 +1,80 @@
+╔══════════════════════════════════════════════════════════════════╗
+║                                                                  ║
+║     🎯 DEPLOY ON SINGLE URL - QUICK GUIDE 🎯                    ║
+║                                                                  ║
+╚══════════════════════════════════════════════════════════════════╝
+
+✅ Configuration Updated!
+✅ Frontend and Backend will work on ONE URL
+✅ No CORS issues
+✅ Seamless user experience
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🚀 DEPLOYMENT STEPS (7 minutes total):
+
+1️⃣  DEPLOY BACKEND (2 min)
+   → https://vercel.com/new
+   → Import: Monal-Jain01/matrix-recruitment-portal
+   → Root Directory: backend
+   → Environment Variables:
+     MONGODB_URI=mongodb+srv://monaljain1901:monalj@cluster0.t5fifco.mongodb.net/matrx_recruitment_data
+   → Deploy
+   → COPY BACKEND URL (e.g., https://matrix-backend-xyz.vercel.app)
+
+2️⃣  DEPLOY FRONTEND (2 min)
+   → https://vercel.com/new
+   → Import same repository
+   → Root Directory: frontend
+   → NO environment variables needed!
+   → Deploy
+
+3️⃣  UPDATE REWRITE URL (1 min)
+   → Edit frontend/vercel.json on GitHub
+   → Line 11: Replace with your backend URL from step 1
+   → Commit and push
+   → Vercel auto-deploys
+
+4️⃣  UPDATE BACKEND CORS (1 min)
+   → Backend project → Settings → Environment Variables
+   → Add: FRONTEND_URL=<your-frontend-url>
+   → Redeploy backend
+
+5️⃣  CONFIGURE MONGODB (1 min)
+   → https://cloud.mongodb.com
+   → Network Access → Add IP: 0.0.0.0/0
+   → Confirm
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+🎯 RESULT - EVERYTHING ON ONE URL:
+
+Main Site:    https://matrix-portal.vercel.app
+Landing:      https://matrix-portal.vercel.app/
+Admin:        https://matrix-portal.vercel.app/admin
+API:          https://matrix-portal.vercel.app/api/*
+Success:      https://matrix-portal.vercel.app/success
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ HOW IT WORKS:
+
+User visits: https://matrix-portal.vercel.app/api/apply
+             ↓
+Vercel automatically forwards to backend
+             ↓
+Backend processes request
+             ↓
+Response sent back through same URL
+             ↓
+User only sees: matrix-portal.vercel.app
+
+NO CORS ISSUES! 🎉
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📚 DETAILED GUIDE: SINGLE-URL-DEPLOYMENT.md
+
+🚀 START NOW: https://vercel.com/new
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

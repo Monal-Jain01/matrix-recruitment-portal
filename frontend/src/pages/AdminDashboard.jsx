@@ -4,8 +4,8 @@ import { Search, Filter, Eye, Trash2, Users, BarChart3 } from 'lucide-react';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 
-// Configure axios base URL for production
-axios.defaults.baseURL = process.env.NODE_ENV === 'production' ? '' : 'http://localhost:5000';
+// Configure axios base URL - empty string for same domain (Vercel rewrites handle /api routes)
+axios.defaults.baseURL = '';
 
 const AdminDashboard = () => {
   const [applications, setApplications] = useState([]);
