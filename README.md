@@ -1,6 +1,6 @@
 # MATRIX Recruitment Portal
 
-A premium, full-stack MERN recruitment portal for the MATRIX college club with modern UI, animations, and comprehensive features.
+Recruitment portal for the MATRIX club at Jabalpur Engineering College.
 
 ## 🚀 Features
 
@@ -46,11 +46,10 @@ A premium, full-stack MERN recruitment portal for the MATRIX college club with m
 
 2. **Domain Selection**
    - Technical
-   - Design
+   - Studio
    - Management
-   - Content
+   - Editorial
    - Media
-   - Portfolio/GitHub link submission
 
 3. **Essay Questions**
    - Why should we recruit you?
@@ -82,7 +81,7 @@ A premium, full-stack MERN recruitment portal for the MATRIX college club with m
    Create `backend/.env`:
    ```env
    PORT=5000
-   MONGODB_URI=mongodb://localhost:27017/matrix-recruitment
+   MONGODB_URI=<your_database_credential>
    NODE_ENV=development
    ```
 
