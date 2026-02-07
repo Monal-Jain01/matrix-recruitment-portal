@@ -11,11 +11,24 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: [
-    'https://matrix-recruitment-portal-d5bv.vercel.app',
-    'http://localhost:5000',
-    'http://localhost:3000'
-  ],
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+    
+    // Allow all vercel.app domains and localhost
+    const allowedOrigins = [
+      'https://matrix-recruitment-portal-d5bv.vercel.app',
+      'http://localhost:5000',
+      'http://localhost:3000'
+    ];
+    
+    // Check if origin is allowed or is a vercel.app domain
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.includes('.vercel.app')) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
