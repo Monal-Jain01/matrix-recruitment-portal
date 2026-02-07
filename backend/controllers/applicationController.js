@@ -4,17 +4,28 @@ const { validationResult } = require('express-validator');
 // Submit application
 const submitApplication = async (req, res) => {
   try {
+    // Log incoming request data for debugging
+    console.log('=== Incoming Application Data ===');
+    console.log('Body:', JSON.stringify(req.body, null, 2));
+    console.log('================================');
+    
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
+      console.log('Validation Errors:', errors.array());
       return res.status(400).json({
         success: false,
         message: 'Validation failed',
-        errors: errors.array()
+        errors: errors.array().map(err => ({
+          field: err.path || err.param,
+          message: err.msg,
+          value: err.value
+        }))
       });
     }
 
     // Custom validation: Check if at least one link is provided
     if (!req.body.submissionLink || req.body.submissionLink.trim() === '') {
+      console.log('Submission link validation failed');
       return res.status(400).json({
         success: false,
         message: 'Please provide at least one portfolio/GitHub/Drive link',
@@ -24,7 +35,7 @@ const submitApplication = async (req, res) => {
 
     const applicationData = {
       fullName: req.body.fullName,
-      semester: req.body.semester,
+      semester: parseInt(req.body.semester), // Ensure it's a number
       branch: req.body.branch,
       phone: req.body.phone,
       email: req.body.email,
@@ -35,9 +46,11 @@ const submitApplication = async (req, res) => {
       conflictHandling: req.body.conflictHandling
     };
 
+    console.log('Creating application with data:', applicationData);
     const application = new Application(applicationData);
     await application.save();
 
+    console.log('Application saved successfully:', application._id);
     res.status(201).json({
       success: true,
       message: 'Application submitted successfully!',
