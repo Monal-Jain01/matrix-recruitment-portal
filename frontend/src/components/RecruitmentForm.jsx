@@ -30,8 +30,8 @@ const RecruitmentForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  const branches = ['CSE', 'IT', 'AI & DS', 'MT','ECE','EEE', 'MECH', 'CIVIL', 'IP'];
-  const domains = ['Students Technical Council', 'Matrix Studio', 'Management', 'Students Editorial Council', 'Social Media'];
+  const branches = ['CSE', 'IT', 'ECE', 'MECH', 'CIVIL', 'EEE', 'CHEM', 'BIOTECH', 'OTHER'];
+  const domains = ['Technical', 'Design', 'Management', 'Content', 'Media'];
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -130,10 +130,21 @@ const RecruitmentForm = () => {
         .filter(link => link && link.trim())
         .map(link => link.trim());
       
+      // Prepare data with correct types
       const submissionData = {
-        ...formData,
-        submissionLink: allLinks.join(', ') // Join all links with comma separator
+        fullName: formData.fullName.trim(),
+        semester: parseInt(formData.semester), // Ensure it's a number
+        branch: formData.branch,
+        phone: formData.phone.trim(),
+        email: formData.email.trim().toLowerCase(),
+        domain: formData.domain,
+        submissionLink: allLinks.join(', '), // Join all links with comma separator
+        whyRecruit: formData.whyRecruit.trim(),
+        leaderOrTeamPlayer: formData.leaderOrTeamPlayer.trim(),
+        conflictHandling: formData.conflictHandling.trim()
       };
+      
+      console.log('Submitting application data:', submissionData);
       
       const response = await axios.post('/api/apply', submissionData);
       
@@ -148,13 +159,17 @@ const RecruitmentForm = () => {
       }
     } catch (error) {
       console.error('Submission error:', error);
+      console.error('Error response:', error.response?.data);
       
       if (error.response?.data?.errors) {
         const serverErrors = {};
         error.response.data.errors.forEach(err => {
-          serverErrors[err.field || err.param] = err.message;
+          const fieldName = err.field || err.param || err.path;
+          serverErrors[fieldName] = err.message || err.msg;
+          console.log(`Validation error for ${fieldName}:`, err.message || err.msg);
         });
         setErrors(serverErrors);
+        toast.error('Please fix the validation errors');
       } else if (error.response?.data?.message) {
         toast.error(error.response.data.message);
       } else {

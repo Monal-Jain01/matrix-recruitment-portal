@@ -19,15 +19,16 @@ const validateApplication = [
   
   body('semester')
     .isInt({ min: 1, max: 4 })
-    .withMessage('Semester must be between 1 and 4'),
+    .withMessage('Semester must be a number between 1 and 4')
+    .toInt(), // Convert to integer
   
   body('branch')
     .isIn(['CSE', 'IT', 'ECE', 'MECH', 'CIVIL', 'EEE', 'CHEM', 'BIOTECH', 'OTHER'])
-    .withMessage('Please select a valid branch'),
+    .withMessage('Please select a valid branch from the list'),
   
   body('phone')
     .matches(/^[6-9]\d{9}$/)
-    .withMessage('Please enter a valid 10-digit phone number'),
+    .withMessage('Phone number must be 10 digits starting with 6-9'),
   
   body('email')
     .isEmail()
@@ -36,7 +37,7 @@ const validateApplication = [
   
   body('domain')
     .isIn(['Technical', 'Design', 'Management', 'Content', 'Media'])
-    .withMessage('Please select a valid domain'),
+    .withMessage('Please select a valid domain from the list'),
   
   body('submissionLink')
     .optional({ checkFalsy: true })
@@ -47,17 +48,17 @@ const validateApplication = [
   body('whyRecruit')
     .trim()
     .isLength({ min: 50, max: 1000 })
-    .withMessage('Response must be between 50 and 1000 characters'),
+    .withMessage('This answer must be between 50 and 1000 characters'),
   
   body('leaderOrTeamPlayer')
     .trim()
     .isLength({ min: 30, max: 800 })
-    .withMessage('Response must be between 30 and 800 characters'),
+    .withMessage('This answer must be between 30 and 800 characters'),
   
   body('conflictHandling')
     .trim()
     .isLength({ min: 30, max: 800 })
-    .withMessage('Response must be between 30 and 800 characters')
+    .withMessage('This answer must be between 30 and 800 characters')
 ];
 
 // Routes
