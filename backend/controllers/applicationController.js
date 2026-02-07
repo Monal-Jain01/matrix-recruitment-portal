@@ -13,6 +13,15 @@ const submitApplication = async (req, res) => {
       });
     }
 
+    // Custom validation: Check if at least one link is provided
+    if (!req.body.submissionLink || req.body.submissionLink.trim() === '') {
+      return res.status(400).json({
+        success: false,
+        message: 'Please provide at least one portfolio/GitHub/Drive link',
+        errors: [{ field: 'submissionLink', message: 'At least one link is required' }]
+      });
+    }
+
     const applicationData = {
       fullName: req.body.fullName,
       semester: req.body.semester,

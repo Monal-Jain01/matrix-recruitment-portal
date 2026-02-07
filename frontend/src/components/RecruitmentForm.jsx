@@ -125,8 +125,11 @@ const RecruitmentForm = () => {
     setLoading(true);
     
     try {
-      // Combine main submission link with additional links
-      const allLinks = [formData.submissionLink, ...formData.additionalLinks.filter(link => link.trim())];
+      // Combine main submission link with additional links (filter out empty strings)
+      const allLinks = [formData.submissionLink, ...formData.additionalLinks]
+        .filter(link => link && link.trim())
+        .map(link => link.trim());
+      
       const submissionData = {
         ...formData,
         submissionLink: allLinks.join(', ') // Join all links with comma separator
