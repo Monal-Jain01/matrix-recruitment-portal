@@ -12,7 +12,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://matrix-backend.vercel.app/api/:path*"
+      "destination": "https://matrix-recruitment-portal-526ee88rn-monal-jains-projects.vercel.app/api/:path*"
     }
   ],
   "headers": [

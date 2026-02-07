@@ -11,7 +11,11 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || process.env.NODE_ENV === 'production' ? ['https://your-frontend-url.vercel.app', 'http://localhost:5000'] : 'http://localhost:5000',
+  origin: [
+    'https://matrix-recruitment-portal-d5bv.vercel.app',
+    'http://localhost:5000',
+    'http://localhost:3000'
+  ],
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
