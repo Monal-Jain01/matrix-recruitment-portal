@@ -23,7 +23,7 @@ const validateApplication = [
     .toInt(), // Convert to integer
   
   body('branch')
-    .isIn(['CSE', 'IT', 'ECE', 'MECH', 'CIVIL', 'EEE', 'CHEM', 'BIOTECH', 'OTHER'])
+    .isIn(['CSE', 'IT', 'AI & DS', 'MT', 'ECE', 'EEE', 'MECH', 'CIVIL', 'IP'])
     .withMessage('Please select a valid branch from the list'),
   
   body('phone')
@@ -36,7 +36,7 @@ const validateApplication = [
     .withMessage('Please enter a valid email address'),
   
   body('domain')
-    .isIn(['Technical', 'Design', 'Management', 'Content', 'Media'])
+    .isIn(['Students Technical Council', 'Matrix Studio', 'Management', 'Students Editorial Council', 'Social Media'])
     .withMessage('Please select a valid domain from the list'),
   
   body('submissionLink')

@@ -30,8 +30,8 @@ const RecruitmentForm = () => {
 
   const [errors, setErrors] = useState({});
 
-  const branches = ['CSE', 'IT', 'ECE', 'MECH', 'CIVIL', 'EEE', 'CHEM', 'BIOTECH', 'OTHER'];
-  const domains = ['Technical', 'Design', 'Management', 'Content', 'Media'];
+  const branches = ['CSE', 'IT', 'AI & DS', 'MT','ECE','EEE', 'MECH', 'CIVIL', 'IP'];
+  const domains = ['Students Technical Council', 'Matrix Studio', 'Management', 'Students Editorial Council', 'Social Media'];
 
 
   const handleInputChange = (e) => {

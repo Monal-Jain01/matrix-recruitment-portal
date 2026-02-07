@@ -17,7 +17,7 @@ const applicationSchema = new mongoose.Schema({
   branch: {
     type: String,
     required: [true, 'Branch is required'],
-    enum: ['CSE', 'IT', 'ECE', 'MECH', 'CIVIL', 'EEE', 'CHEM', 'BIOTECH', 'OTHER']
+    enum: ['CSE', 'IT', 'AI & DS', 'MT', 'ECE', 'EEE', 'MECH', 'CIVIL', 'IP']
   },
   phone: {
     type: String,
@@ -33,7 +33,7 @@ const applicationSchema = new mongoose.Schema({
   domain: {
     type: String,
     required: [true, 'Domain selection is required'],
-    enum: ['Technical', 'Design', 'Management', 'Content', 'Media']
+    enum: ['Students Technical Council', 'Matrix Studio', 'Management', 'Students Editorial Council', 'Social Media']
   },
   submissionLink: {
     type: String,
