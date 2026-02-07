@@ -211,7 +211,7 @@ const LandingPage = () => {
       <footer className="py-8 px-4 border-t border-gray-800">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-500">
-            © 2024 MATRIX Club. Built with passion for innovation.
+            © 2026 MATRIX Club, Jabalpur Engineering College
           </p>
         </div>
       </footer>
