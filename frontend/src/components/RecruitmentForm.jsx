@@ -90,7 +90,11 @@ const RecruitmentForm = () => {
 
     if (step === 2) {
       if (!formData.domain) newErrors.domain = 'Please select a domain';
-      if (!formData.submissionLink.trim()) newErrors.submissionLink = 'Submission link/file is required';
+      // Main submission link is now optional - at least one link should be provided
+      const hasAnyLink = formData.submissionLink.trim() || formData.additionalLinks.some(link => link.trim());
+      if (!hasAnyLink) {
+        newErrors.submissionLink = 'Please provide at least one link';
+      }
     }
 
     if (step === 3) {
@@ -324,7 +328,7 @@ const RecruitmentForm = () => {
 
               <div className="form-field">
                 <label className="block text-sm font-medium mb-2">
-                  Portfolio/GitHub/Drive Links *
+                  Portfolio/LinkedIn/GitHub/Drive Links (At least one required)
                 </label>
                 <div className="space-y-3">
                   {/* Main submission link */}
@@ -336,7 +340,7 @@ const RecruitmentForm = () => {
                       value={formData.submissionLink}
                       onChange={handleInputChange}
                       className="w-full pl-12 pr-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:border-matrix-red focus:outline-none transition-all duration-300"
-                      placeholder="https://your-main-portfolio-link.com"
+                      placeholder="https://your-portfolio-link.com (optional)"
                     />
                   </div>
                   

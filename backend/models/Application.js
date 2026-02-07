@@ -37,7 +37,7 @@ const applicationSchema = new mongoose.Schema({
   },
   submissionLink: {
     type: String,
-    required: [true, 'Submission link/file is required'],
+    required: false, // Made optional - at least one link should be provided
     trim: true,
     maxlength: [2000, 'Submission links cannot exceed 2000 characters']
   },

@@ -74,33 +74,6 @@ body {
   animation: float 6s ease-in-out infinite;
 }
 
-/* Custom cursor */
-.custom-cursor {
-  cursor: none;
-}
-
-.cursor-dot {
-  width: 8px;
-  height: 8px;
-  background: #e10600;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9999;
-  mix-blend-mode: difference;
-}
-
-.cursor-outline {
-  width: 40px;
-  height: 40px;
-  border: 2px solid #e10600;
-  border-radius: 50%;
-  position: fixed;
-  pointer-events: none;
-  z-index: 9998;
-  transition: all 0.1s ease;
-}
-
 /* Form animations */
 .form-field {
   transition: all 0.3s ease;

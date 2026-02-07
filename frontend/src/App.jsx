@@ -4,12 +4,10 @@ import { Toaster } from 'react-hot-toast';
 import LandingPage from './pages/LandingPage';
 import AdminDashboard from './pages/AdminDashboard';
 import SuccessPage from './pages/SuccessPage';
-import CustomCursor from './components/CustomCursor';
 
 function App() {
   return (
     <div className="App">
-      <CustomCursor />
       <Router>
         <Routes>
           <Route path="/" element={<LandingPage />} />

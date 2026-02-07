@@ -39,9 +39,10 @@ const validateApplication = [
     .withMessage('Please select a valid domain'),
   
   body('submissionLink')
+    .optional({ checkFalsy: true })
     .trim()
     .isLength({ min: 1 })
-    .withMessage('Submission link/file is required'),
+    .withMessage('Submission link cannot be empty if provided'),
   
   body('whyRecruit')
     .trim()
