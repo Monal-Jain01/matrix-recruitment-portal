@@ -28,6 +28,7 @@ const AdminDashboard = () => {
     fetchStats();
   }, []);
 
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   useEffect(() => {
     filterApplications();
   }, [applications, searchTerm, domainFilter]);
