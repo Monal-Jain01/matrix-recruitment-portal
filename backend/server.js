@@ -11,7 +11,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? 'https://your-domain.com' : 'http://localhost:5000',
+  origin: process.env.FRONTEND_URL || process.env.NODE_ENV === 'production' ? ['https://your-frontend-url.vercel.app', 'http://localhost:5000'] : 'http://localhost:5000',
   credentials: true
 }));
 app.use(express.json({ limit: '10mb' }));
