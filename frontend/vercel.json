@@ -1,9 +1,6 @@
 {
   "version": 2,
-  "rewrites": [
-    {
-      "source": "/api/:path*",
-      "destination": "https://matrix-recruitment-portal-3qgqi9od6-monal-jains-projects.vercel.app/api/:path*"
-    }
-  ]
+  "buildCommand": "npm run build",
+  "outputDirectory": "build",
+  "framework": "create-react-app"
 }

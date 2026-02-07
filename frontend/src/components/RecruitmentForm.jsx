@@ -5,9 +5,6 @@ import toast from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
-// Configure axios base URL - empty string for same domain (Vercel rewrites handle /api routes)
-axios.defaults.baseURL = '';
-
 const RecruitmentForm = () => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
