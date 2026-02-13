@@ -10,6 +10,10 @@ module.exports = {
           red: '#e10600',
           'red-dark': '#b30500',
           'red-light': '#ff1a0d',
+          blue: '#3b82f6',
+          'blue-dark': '#1e40af',
+          'blue-light': '#60a5fa',
+          'blue-glow': '#93c5fd',
         }
       },
       animation: {
@@ -20,8 +24,8 @@ module.exports = {
       },
       keyframes: {
         glow: {
-          '0%': { boxShadow: '0 0 5px #e10600, 0 0 10px #e10600, 0 0 15px #e10600' },
-          '100%': { boxShadow: '0 0 10px #e10600, 0 0 20px #e10600, 0 0 30px #e10600' }
+          '0%': { boxShadow: '0 0 5px #3b82f6, 0 0 10px #3b82f6, 0 0 15px #3b82f6' },
+          '100%': { boxShadow: '0 0 10px #3b82f6, 0 0 20px #60a5fa, 0 0 30px #93c5fd' }
         },
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },

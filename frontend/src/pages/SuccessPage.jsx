@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { CheckCircle, Home, Users } from 'lucide-react';
+import { CheckCircle, Home, Users, MessageCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
 const SuccessPage = () => {
@@ -121,6 +121,16 @@ const SuccessPage = () => {
           >
             <Home className="h-5 w-5" />
             Back to Home
+          </motion.button>
+          
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            onClick={() => window.open('https://chat.whatsapp.com/J5arPSuTdU3EFfjwsNoXhf', '_blank')}
+            className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 justify-center shadow-lg shadow-green-500/50"
+          >
+            <MessageCircle className="h-5 w-5" />
+            Join WhatsApp Group
           </motion.button>
           
           <motion.button

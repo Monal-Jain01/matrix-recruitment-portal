@@ -139,7 +139,7 @@ const AdminDashboard = () => {
           animate={{ opacity: 1, y: 0 }}
           className="mb-8"
         >
-          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-matrix-red to-red-400 bg-clip-text text-transparent">
+          <h1 className="text-4xl font-bold mb-2 bg-gradient-to-r from-blue-400 via-blue-500 to-cyan-400 bg-clip-text text-transparent">
             MATRIX Admin Dashboard
           </h1>
           <p className="text-gray-400">Manage recruitment applications</p>
@@ -155,9 +155,9 @@ const AdminDashboard = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-gray-300 text-sm">Total Applications</p>
-                <p className="text-3xl font-bold text-matrix-red">{stats.total}</p>
+                <p className="text-3xl font-bold text-blue-400">{stats.total}</p>
               </div>
-              <Users className="h-8 w-8 text-matrix-red" />
+              <Users className="h-8 w-8 text-blue-400" />
             </div>
           </div>
 
@@ -189,7 +189,7 @@ const AdminDashboard = () => {
                 placeholder="Search by name, email, or branch..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:border-matrix-red focus:outline-none"
+                className="w-full pl-10 pr-4 py-3 bg-black/50 border border-gray-600 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none"
               />
             </div>
 
@@ -199,7 +199,7 @@ const AdminDashboard = () => {
               <select
                 value={domainFilter}
                 onChange={(e) => setDomainFilter(e.target.value)}
-                className="pl-10 pr-8 py-3 bg-black/50 border border-gray-600 rounded-lg focus:border-matrix-red focus:outline-none appearance-none min-w-[150px]"
+                className="pl-10 pr-8 py-3 bg-black/50 border border-gray-600 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 focus:outline-none appearance-none min-w-[150px]"
               >
                 {domains.map(domain => (
                   <option key={domain} value={domain}>
@@ -251,7 +251,7 @@ const AdminDashboard = () => {
                       {application.email}
                     </td>
                     <td className="px-6 py-4 text-sm">
-                      <span className="px-2 py-1 bg-matrix-red/20 text-matrix-red rounded-full text-xs">
+                      <span className="px-2 py-1 bg-blue-500/20 text-blue-400 rounded-full text-xs">
                         {application.domain}
                       </span>
                     </td>
@@ -295,7 +295,7 @@ const AdminDashboard = () => {
                     onClick={() => setCurrentPage(page)}
                     className={`px-3 py-1 rounded ${
                       currentPage === page
-                        ? 'bg-matrix-red text-white'
+                        ? 'bg-blue-600 text-white shadow-lg shadow-blue-500/50'
                         : 'bg-gray-700 text-gray-300 hover:bg-gray-600'
                     } transition-colors`}
                   >
@@ -316,7 +316,7 @@ const AdminDashboard = () => {
               className="glass-red rounded-xl p-6 max-w-4xl w-full max-h-[90vh] overflow-y-auto"
             >
               <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-bold text-matrix-red">
+                <h2 className="text-2xl font-bold text-blue-400">
                   Application Details
                 </h2>
                 <button
@@ -347,7 +347,7 @@ const AdminDashboard = () => {
                   </div>
                   <div>
                     <label className="text-sm text-gray-400">Domain</label>
-                    <p className="text-matrix-red font-medium">{selectedApplication.domain}</p>
+                    <p className="text-blue-400 font-medium">{selectedApplication.domain}</p>
                   </div>
                   <div>
                     <label className="text-sm text-gray-400">Submission Links</label>
