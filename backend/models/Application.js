@@ -33,7 +33,7 @@ const applicationSchema = new mongoose.Schema({
   domain: {
     type: String,
     required: [true, 'Domain selection is required'],
-    enum: ['Students Technical Council', 'Matrix Studio', 'Management', 'Students Editorial Council', 'Social Media']
+    enum: ['Students Technical Council', 'Matrix Studio', 'Public Relations & Management', 'Students Editorial Council']
   },
   submissionLink: {
     type: String,

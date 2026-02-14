@@ -36,7 +36,7 @@ const validateApplication = [
     .withMessage('Please enter a valid email address'),
   
   body('domain')
-    .isIn(['Students Technical Council', 'Matrix Studio', 'Management', 'Students Editorial Council', 'Social Media'])
+    .isIn(['Students Technical Council', 'Matrix Studio', 'Public Relations & Management', 'Students Editorial Council'])
     .withMessage('Please select a valid domain from the list'),
   
   body('submissionLink')

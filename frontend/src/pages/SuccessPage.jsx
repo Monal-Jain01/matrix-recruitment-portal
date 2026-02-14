@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { CheckCircle, Home, Users, MessageCircle } from 'lucide-react';
 import confetti from 'canvas-confetti';
+import ParticleBackground from '../components/ParticleBackground';
 
 const SuccessPage = () => {
   const location = useLocation();
@@ -44,8 +45,9 @@ const SuccessPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4">
-      <div className="text-center max-w-2xl mx-auto">
+    <div className="min-h-screen bg-black text-white flex items-center justify-center px-4 relative overflow-hidden">
+      <ParticleBackground />
+      <div className="text-center max-w-2xl mx-auto relative z-10">
         {/* Success Icon */}
         <motion.div
           initial={{ scale: 0 }}
@@ -127,7 +129,7 @@ const SuccessPage = () => {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => window.open('https://chat.whatsapp.com/J5arPSuTdU3EFfjwsNoXhf', '_blank')}
-            className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 justify-center shadow-lg shadow-green-500/50"
+            className="px-8 py-3 bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 rounded-lg font-medium transition-all duration-300 flex items-center gap-2 justify-center shadow-lg"
           >
             <MessageCircle className="h-5 w-5" />
             Join WhatsApp Group
@@ -144,20 +146,14 @@ const SuccessPage = () => {
           </motion.button>
         </motion.div>
 
-        {/* Additional Info */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.8 }}
-          className="mt-12 pt-8 border-t border-gray-800"
-        >
-          <p className="text-gray-500 text-sm">
-            Questions? Contact us at{' '}
-            <a href="mailto:matrix@college.edu" className="text-matrix-red hover:text-red-400 transition-colors">
-              matrix@college.edu
-            </a>
+        {/* Footer */}
+      <footer className="py-8 px-4 border-t border-gray-800">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-500">
+            © 2026 MATRIX Club, Jabalpur Engineering College
           </p>
-        </motion.div>
+        </div>
+      </footer>
       </div>
     </div>
   );
