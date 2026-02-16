@@ -19,7 +19,7 @@ const RecruitmentForm = () => {
     email: '',
     domain: '',
     submissionLink: '',
-    additionalLinks: [''], // Array for multiple links
+    additionalLinks: [], // Array for additional optional links
     whyRecruit: '',
     leaderOrTeamPlayer: '',
     conflictHandling: ''
@@ -57,7 +57,7 @@ const RecruitmentForm = () => {
   };
 
   const addAdditionalLink = () => {
-    if (formData.additionalLinks.length < 5) { // Limit to 5 additional links
+    if (formData.additionalLinks.length < 5) {
       setFormData(prev => ({
         ...prev,
         additionalLinks: [...prev.additionalLinks, '']
@@ -66,13 +66,11 @@ const RecruitmentForm = () => {
   };
 
   const removeAdditionalLink = (index) => {
-    if (formData.additionalLinks.length > 1) {
-      const newLinks = formData.additionalLinks.filter((_, i) => i !== index);
-      setFormData(prev => ({
-        ...prev,
-        additionalLinks: newLinks
-      }));
-    }
+    const newLinks = formData.additionalLinks.filter((_, i) => i !== index);
+    setFormData(prev => ({
+      ...prev,
+      additionalLinks: newLinks
+    }));
   };
 
   const validateStep = (step) => {
@@ -88,11 +86,7 @@ const RecruitmentForm = () => {
 
     if (step === 2) {
       if (!formData.domain) newErrors.domain = 'Please select a domain';
-      // Main submission link is now optional - at least one link should be provided
-      const hasAnyLink = formData.submissionLink.trim() || formData.additionalLinks.some(link => link.trim());
-      if (!hasAnyLink) {
-        newErrors.submissionLink = 'Please provide at least one link';
-      }
+      // Submission links are now optional
     }
 
     if (step === 3) {
@@ -136,7 +130,7 @@ const RecruitmentForm = () => {
         phone: formData.phone.trim(),
         email: formData.email.trim().toLowerCase(),
         domain: formData.domain,
-        submissionLink: allLinks.join(', '), // Join all links with comma separator
+        submissionLink: allLinks.join(', ') || '', // Join all links or empty string if none
         whyRecruit: formData.whyRecruit.trim(),
         leaderOrTeamPlayer: formData.leaderOrTeamPlayer.trim(),
         conflictHandling: formData.conflictHandling.trim()
@@ -344,7 +338,7 @@ const RecruitmentForm = () => {
 
               <div className="form-field">
                 <label className="block text-sm font-medium mb-2">
-                  Portfolio/LinkedIn/GitHub/Drive Links (At least one required)
+                  Portfolio/LinkedIn/GitHub/Drive Links (Optional)
                 </label>
                 <div className="space-y-3">
                   {/* Main submission link */}
@@ -373,15 +367,13 @@ const RecruitmentForm = () => {
                           placeholder={`Additional link ${index + 1} (optional)`}
                         />
                       </div>
-                      {formData.additionalLinks.length > 1 && (
-                        <button
-                          type="button"
-                          onClick={() => removeAdditionalLink(index)}
-                          className="px-3 py-3 bg-red-600 hover:bg-red-700 rounded-lg transition-colors"
-                        >
-                          <Minus className="h-5 w-5" />
-                        </button>
-                      )}
+                      <button
+                        type="button"
+                        onClick={() => removeAdditionalLink(index)}
+                        className="px-3 py-3 bg-red-600 hover:bg-red-700 rounded-lg transition-colors"
+                      >
+                        <Minus className="h-5 w-5" />
+                      </button>
                     </div>
                   ))}
                   
