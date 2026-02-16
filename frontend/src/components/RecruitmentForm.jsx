@@ -28,7 +28,7 @@ const RecruitmentForm = () => {
   const [errors, setErrors] = useState({});
 
   const branches = ['CSE', 'IT', 'AI & DS', 'MT','ECE','EEE', 'MECH', 'CIVIL', 'IP'];
-  const domains = ['Students Technical Council', 'Matrix Studio', 'Public Relations & Management', 'Students Editorial Council'];
+  const domains = ['Students Technical Council', 'Studio(Video editing & Graphics)', 'Public Relations & Management', 'Students Editorial Council'];
 
 
   const handleInputChange = (e) => {

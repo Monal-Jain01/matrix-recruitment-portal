@@ -21,7 +21,7 @@ const AdminDashboard = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [itemsPerPage] = useState(10);
 
-  const domains = ['all', 'Students Technical Council', 'Matrix Studio', 'Public Relations & Management', 'Students Editorial Council'];
+  const domains = ['all', 'Students Technical Council', 'Studio(Video editing & Graphics)', 'Public Relations & Management', 'Students Editorial Council'];
 
   useEffect(() => {
     fetchApplications();
